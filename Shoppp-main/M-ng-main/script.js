@@ -5,7 +5,7 @@ let iconCart = document.querySelector('.icon-cart');
 let body = document.querySelector('body');
 let closeCart = document.querySelector('.close');
 
-// Toggle cart visibility
+
 iconCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 });
@@ -17,10 +17,10 @@ closeCart.addEventListener('click', () => {
 function addToCart(productName, price, sizeId) {
     const selectedSize = document.getElementById(sizeId).value;
     
-    // Find the product in the cart
+
     let positionThisProductInCart = cart.findIndex(item => item.name === productName && item.size === selectedSize);
     
-    // If product is new, add to cart, else increment the quantity
+
     if (positionThisProductInCart < 0) {
         cart.push({ name: productName, price: price, size: selectedSize, quantity: 1 });
     } else {
@@ -47,4 +47,20 @@ function displayCartItems() {
 
 function addCartToMemory() {
     localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+window.onload = function() {
+    const popup = document.getElementById('country-popup');
+    
+    if (!localStorage.getItem('country')) {
+        popup.style.display = 'flex';
+    } else {
+        popup.style.display = 'none';
+    }
+}
+
+function submitCountry() {
+    const selectedCountry = document.getElementById('country-select').value;
+    localStorage.setItem('country', selectedCountry);
+    document.getElementById('country-popup').style.display = 'none';
 }

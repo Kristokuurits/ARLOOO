@@ -4,102 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A R L O</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #333;
-            color: white;
-            padding: 10px;
-        }
-        .title {
-            font-size: 24px;
-        }
-        .icon-cart {
-            position: relative;
-        }
-        .icon-cart img {
-            width: 50px;
-            height: 30px;
-        }
-        #cart-count {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background-color: red;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 50%;
-        }
-        h1 {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .listProduct {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .product {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin: 10px;
-            padding: 10px;
-            text-align: center;
-            width: 200px;
-        }
-        .product img {
-            max-width: 100%;
-            height: auto;
-        }
-        .cartTab {
-            position: fixed;
-            right: 0;
-            top: 0;
-            width: 300px;
-            height: 100%;
-            background-color: #f9f9f9;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        .cartTab.open {
-            transform: translateX(0);
-        }
-        .listCart {
-            padding: 20px;
-        }
-        .close {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <header>
-        <div class="title">- A R L O -</div>
+        <h1>- A R L O -</h1>
         <div class="icon-cart" onclick="toggleCart()">
             <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Ostukorv">
             <span id="cart-count">0</span>
         </div>
     </header>
 
-    <h1>- Jalanõud -</h1>
+    <h3>- Jalanõud -</h3>
 
     <main class="listProduct">
         <div class="product item" data-id="1">
-            <h2>Campus 00s</h2>
+            <h2>One Star Pro Ox</h2>
             <img src="images/1.png" alt="Campus 00s kingad" class="product-image">
             <p>Hind: 129€</p>
             <label for="size1">Vali suurus:</label>
@@ -120,7 +41,7 @@
             <button class="addCart" onclick="addToCart('Campus 00s', 129, 'size1')">Lisa korvi</button>
         </div>
         <div class="product item" data-id="2">
-            <h2>Toode 2</h2>
+            <h2>Samba OG</h2>
             <img src="images/2.png" alt="Toode 2" class="product-image">
             <p>Hind: 99€</p>
             <label for="size2">Vali suurus:</label>
@@ -141,7 +62,7 @@
             <button class="addCart" onclick="addToCart('Toode 2', 99, 'size2')">Lisa korvi</button>
         </div>
         <div class="product item" data-id="3">
-            <h2>Toode 3</h2>
+            <h2>Campus 00s</h2>
             <img src="images/3.png" alt="Toode 3" class="product-image">
             <p>Hind: 85€</p>
             <label for="size3">Vali suurus:</label>
@@ -162,7 +83,7 @@
             <button class="addCart" onclick="addToCart('Toode 3', 85, 'size3')">Lisa korvi</button>
         </div>
         <div class="product item" data-id="4">
-            <h2>Toode 4</h2>
+            <h2>Air Force 1 07</h2>
             <img src="images/4.png" alt="Toode 4" class="product-image">
             <p>Hind: 110€</p>
             <label for="size4">Vali suurus:</label>
@@ -183,7 +104,7 @@
             <button class="addCart" onclick="addToCart('Toode 4', 110, 'size4')">Lisa korvi</button>
         </div>
         <div class="product item" data-id="5">
-            <h2>Toode 5</h2>
+            <h2>New Balance U9060</h2>
             <img src="images/5.png" alt="Toode 5" class="product-image">
             <p>Hind: 75€</p>
             <label for="size5">Vali suurus:</label>
@@ -204,7 +125,7 @@
             <button class="addCart" onclick="addToCart('Toode 5', 75, 'size5')">Lisa korvi</button>
         </div>
         <div class="product item" data-id="6">
-            <h2>Toode 6</h2>
+            <h2>Nike Dunk Low Gs</h2>
             <img src="images/6.png" alt="Toode 6" class="product-image">
             <p>Hind: 60€</p>
             <label for="size6">Vali suurus:</label>
@@ -224,74 +145,55 @@
             </select>
             <button class="addCart" onclick="addToCart('Toode 6', 60, 'size6')">Lisa korvi</button>
         </div>
-        <!-- Add more shoe items as needed -->
-    </main>
-
-    <h1>- Riided -</h1>
-
-    <main class="listProduct">
         <div class="product item" data-id="7">
-            <h2>MH Ess Flc Crew</h2>
-            <img src="images/7.png" alt="MH Ess Flc Crew" class="product-image">
+            <h2>Air Jordan 4 Retro</h2>
+            <img src="images/7.png" alt="Toode 7" class="product-image">
             <p>Hind: 44€</p>
             <label for="size7">Vali suurus:</label>
             <select id="size7">
-                <option value="XS">XS</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
             </select>
-            <button class="addCart" onclick="addToCart('MH Ess Flc Crew', 44, 'size7')">Lisa korvi</button>
+            <button class="addCart" onclick="addToCart('Air Jordan 4 Retro', 44, 'size7')">Lisa korvi</button>
         </div>
         <div class="product item" data-id="8">
-            <h2>Toode 8</h2>
+            <h2>Palermo moda</h2>
             <img src="images/8.png" alt="Toode 8" class="product-image">
             <p>Hind: 50€</p>
             <label for="size8">Vali suurus:</label>
             <select id="size8">
-                <option value="XS">XS</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
+                <option value="35">35</option>
+                <option value="36">36</option>
+                <option value="37">37</option>
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+                <option value="43">43</option>
+                <option value="44">44</option>
+                <option value="45">45</option>
+                <option value="46">46</option>
             </select>
             <button class="addCart" onclick="addToCart('Toode 8', 50, 'size8')">Lisa korvi</button>
         </div>
-        <div class="product item" data-id="9">
-            <h2>Toode 9</h2>
-            <img src="images/9.png" alt="Toode 9" class="product-image">
-            <p>Hind: 85€</p>
-            <label for="size9">Vali suurus:</label>
-            <select id="size9">
-                <option value="XS">XS</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
-            </select>
-            <button class="addCart" onclick="addToCart('Toode 9', 85, 'size9')">Lisa korvi</button>
-        </div>
-        <div class="product item" data-id="10">
-            <h2>Toode 10</h2>
-            <img src="images/10.png" alt="Toode 10" class="product-image">
-            <p>Hind: 120€</p>
-            <label for="size10">Vali suurus:</label>
-            <select id="size10">
-                <option value="XS">XS</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
-            </select>
-            <button class="addCart" onclick="addToCart('Toode 10', 120, 'size10')">Lisa korvi</button>
-        </div>
+    </main>
+
+    <h3>- Riided -</h3>
+
+    <main class="listProduct">
         <div class="product item" data-id="11">
-            <h2>Toode 11</h2>
+            <h2>MH Ess Flc Crew</h2>
             <img src="images/11.png" alt="Toode 11" class="product-image">
             <p>Hind: 90€</p>
             <label for="size11">Vali suurus:</label>
@@ -306,7 +208,7 @@
             <button class="addCart" onclick="addToCart('Toode 11', 90, 'size11')">Lisa korvi</button>
         </div>
         <div class="product item" data-id="12">
-            <h2>Toode 12</h2>
+            <h2>MJ Air Jdn WM Flc Hoodie</h2>
             <img src="images/12.png" alt="Toode 12" class="product-image">
             <p>Hind: 45€</p>
             <label for="size12">Vali suurus:</label>
@@ -321,7 +223,7 @@
             <button class="addCart" onclick="addToCart('Toode 12', 45, 'size12')">Lisa korvi</button>
         </div>
         <div class="product item" data-id="13">
-            <h2>Toode 13</h2>
+            <h2>MJ Ess Stmt flc Po</h2>
             <img src="images/13.png" alt="Toode 13" class="product-image">
             <p>Hind: 115€</p>
             <label for="size13">Vali suurus:</label>
@@ -336,7 +238,7 @@
             <button class="addCart" onclick="addToCart('Toode 13', 115, 'size13')">Lisa korvi</button>
         </div>
         <div class="product item" data-id="14">
-            <h2>Toode 14</h2>
+            <h2>Nike Tech Fleece</h2>
             <img src="images/14.png" alt="Toode 14" class="product-image">
             <p>Hind: 100€</p>
             <label for="size14">Vali suurus:</label>
@@ -350,6 +252,20 @@
             </select>
             <button class="addCart" onclick="addToCart('Toode 14', 100, 'size14')">Lisa korvi</button>
         </div>
+        <div id="country-popup" class="popup">
+            <div class="popup-content">
+                <h2>Vali oma riik</h2>
+                <select id="country-select">
+                    <option value="ee">Eesti</option>
+                    <option value="fi">Soome</option>
+                    <option value="se">Rootsi</option>
+                    <option value="us">Ameerika Ühendriigid</option>
+                    <option value="uk">Suurbritannia</option>
+                </select>
+                <button onclick="submitCountry()">Salvesta</button>
+            </div>
+        </div>
+        
     </main>
 
     <aside class="cartTab" id="cart">
