@@ -5,7 +5,6 @@ let iconCart = document.querySelector('.icon-cart');
 let body = document.querySelector('body');
 let closeCart = document.querySelector('.close');
 
-
 iconCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 });
@@ -17,10 +16,8 @@ closeCart.addEventListener('click', () => {
 function addToCart(productName, price, sizeId) {
     const selectedSize = document.getElementById(sizeId).value;
     
-
     let positionThisProductInCart = cart.findIndex(item => item.name === productName && item.size === selectedSize);
     
-
     if (positionThisProductInCart < 0) {
         cart.push({ name: productName, price: price, size: selectedSize, quantity: 1 });
     } else {
@@ -46,6 +43,8 @@ function displayCartItems() {
 }
 
 function addCartToMemory() {
+   
+
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
@@ -53,14 +52,18 @@ window.onload = function() {
     const popup = document.getElementById('country-popup');
     
     if (!localStorage.getItem('country')) {
-        popup.style.display = 'flex';
+        popup.style.display = 'flex'; 
     } else {
         popup.style.display = 'none';
     }
 }
 
+
 function submitCountry() {
+    console.log("submitCountry funktsioon käivitub");
     const selectedCountry = document.getElementById('country-select').value;
     localStorage.setItem('country', selectedCountry);
     document.getElementById('country-popup').style.display = 'none';
+    alert(`Riik ${selectedCountry} on salvestatud! Sa saad nüüd jalatseid osta.`);
+    checkCountrySelection();
 }
