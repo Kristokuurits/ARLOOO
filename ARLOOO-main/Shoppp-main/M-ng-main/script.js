@@ -49,14 +49,13 @@ function addCartToMemory() {
 }
 
 window.onload = function() {
-    const popup = document.getElementById('country-popup');
-    
-    if (!localStorage.getItem('country')) {
-        popup.style.display = 'flex'; 
-    } else {
-        popup.style.display = 'none';
-    }
+    document.getElementById('country-popup').style.display = 'flex';
+};
+
+function submitCountry() {
+    document.getElementById('country-popup').style.display = 'none'; 
 }
+
 
 
 function submitCountry() {
