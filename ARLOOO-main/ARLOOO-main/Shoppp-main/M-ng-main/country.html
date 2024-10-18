@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vali oma riik</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div id="country-popup" class="popup">
+        <div class="popup-content">
+            <h1 class="peeter">A R L O</h1>
+            <h2 class="Jaanus">Welcome to Arlo</h2>
+            <select id="country-select">
+                <option value="ee">Estonia</option>
+                <option value="fi">Finland</option>
+                <option value="se">Sweeden</option>
+                <option value="au">Australia</option>
+                <option value="ru">Russia</option>
+                <option value="uk">Austria</option>
+                <option value="be">Belgium</option>
+                <option value="uk">Bulgaria</option>
+                <option value="uk">Brazil</option>
+                <option value="uk">Canada</option>
+                <option value="uk">Chinese Mainland</option>
+                <option value="uk">Denmark</option>
+                <option value="uk">France</option>
+                <option value="uk">Germany</option>
+                <option value="uk">Hong Kong SAR</option>
+                <option value="uk">Hungary</option>
+                <option value="uk">India</option>
+                <option value="uk">Ireland</option>
+                <option value="uk">Italy</option>
+                <option value="uk">Japan</option>
+                <option value="uk">Korea</option>
+            </select>
+        </div>       
+        <button class="yes" onclick="submitCountry()">SHOP</button> 
+    </div>
+
+    <script>
+        function submitCountry() {
+            const selectedCountry = document.getElementById('country-select').value;
+            localStorage.setItem('selectedCountry', selectedCountry);
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

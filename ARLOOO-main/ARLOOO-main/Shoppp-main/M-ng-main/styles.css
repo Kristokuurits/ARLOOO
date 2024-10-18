@@ -8,42 +8,59 @@
 }
 
 .popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:#8f1010;
-    font-family: Futura;
-    font-size: 16px;
-    z-index: 1000; 
-}
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #520c0c;
+        font-family: 'Playfair Display', serif;
+        font-size: 16px;
+        color: white;
+        z-index: 1000; 
+    }
 
 .popup-content {
     padding: 60px;
-    border-radius: 30px;
+    border-radius: 10px;
     text-align: center;
     width: 300px;
 }
 
 .popup h2 {
-    margin-bottom: 20px;
+    margin-bottom: -10px;
+}
+
+.peeter {
+    margin-bottom: 23px;
+    margin-left: 1%;
+    height: 70px;
+    font-size: 48px; 
+}
+
+.Jaanus {
+    font-size: 18px; 
 }
 
 
 #country-select {
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 16px;
+    margin-top: 20px;
+    padding: 7px;
+    font-size: 13px;
+    width: 250px;
+    max-height: 150px;
+    overflow-y: auto; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
 }
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 10;
     background-color: #f4f4f4;
 }
 
@@ -155,4 +172,20 @@ h1 {
 
 .close:hover {
     background-color: lighten(var(--primary-color), 10%);
+}
+
+.yes {
+    padding: 5px;
+    background-color: #520c0c;
+    color: #f4f4f4;
+    text-align: center;
+    width: 250px;
+    margin-bottom: -300px;
+    position: fixed;
+    top: 615px;
+    left: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
