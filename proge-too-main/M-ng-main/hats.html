@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mütsid</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>- Mütsid -</h1>
+        <div class="icon-cart" onclick="toggleCart()">
+            <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Ostukorv">
+            <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <button class="back-button" onclick="window.history.back()">Tagasi</button>
+
+    <main class="listProduct">
+        <div class="product item">
+            <h2>KOOTUD MÜTS</h2>
+            <img src="images/muts1.webp" alt="KOOTUD MÜTS" class="product-image">
+            <p>Hind: 15,95€</p>
+            <button class="addCart" onclick="addToCart('KOOTUD MÜTS', 129)">Lisa korvi</button>
+        </div>
+        
+        <div class="product item">
+            <h2>KOOTUD MÜTS</h2>
+            <img src="images/muts2.webp" alt="KOOTUD MÜTS" class="product-image">
+            <p>Hind: 15,95€</p>
+            <button class="addCart" onclick="addToCart('KOOTUD MÜTS', 99)">Lisa korvi</button>
+        </div>
+
+        <div class="product item">
+            <h2>KOOTUD MÜTS</h2>
+            <img src="images/muts3.webp" alt="KOOTUD MÜTS" class="product-image">
+            <p>Hind: 15,95€</p>
+            <button class="addCart" onclick="addToCart('KOOTUD MÜTS', 89)">Lisa korvi</button>
+        </div>
+
+        <div class="product item">
+            <h2>LÜHIKE KOOTUD MÜTS</h2>
+            <img src="images/muts4.webp" alt="LÜHIKE KOOTUD MÜTS" class="product-image">
+            <p>Hind: 22,95€</p>
+            <button class="addCart" onclick="addToCart('LÜHIKE KOOTUD MÜTS', 99)">Lisa korvi</button>
+        </div>
+
+        <div class="product item">
+            <h2>LÜHIKE KOOTUD MÜTS</h2>
+            <img src="images/muts5.webp" alt="LÜHIKE KOOTUD MÜTS" class="product-image">
+            <p>Hind: 22,95€</p>
+            <button class="addCart" onclick="addToCart('LÜHIKE KOOTUD MÜTS', 99)">Lisa korvi</button>
+        </div>
+
+        <div class="product item">
+            <h2>LÜHIKE KOOTUD MÜTS</h2>
+            <img src="images/muts6.webp" alt="LÜHIKE KOOTUD MÜTS" class="product-image">
+            <p>Hind: 22,95€</p>
+            <button class="addCart" onclick="addToCart('LÜHIKE KOOTUD MÜTS', 99)">Lisa korvi</button>
+        </div>
+
+        <div class="product item">
+            <h2>REBITUD VIIMISTLUSEGA KOOTUD MÜTS</h2>
+            <img src="images/muts7.webp" alt="REBITUD VIIMISTLUSEGA KOOTUD MÜTS" class="product-image">
+            <p>Hind: 19,95€</p>
+            <label for="size2">Vali suurus:</label>
+            <button class="addCart" onclick="addToCart('REBITUD VIIMISTLUSEGA KOOTUD MÜTS', 99)">Lisa korvi</button>
+        </div>
+
+        <div class="product item">
+            <h2>REBITUD VIIMISTLUSEGA KOOTUD MÜTS</h2>
+            <img src="images/muts8.webp" alt="REBITUD VIIMISTLUSEGA KOOTUD MÜTS" class="product-image">
+            <p>Hind: 19,95€</p>
+            <button class="addCart" onclick="addToCart('REBITUD VIIMISTLUSEGA KOOTUD MÜTS', 99)">Lisa korvi</button>
+        </div>
+
+    </main>
+
+    <aside class="cartTab" id="cart">
+        <h1>Ostukorv</h1>
+        <div class="listCart" id="cart-items"></div>
+        <div class="btn">
+            <button class="close" onclick="toggleCart()">Sulge</button>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+</html>
