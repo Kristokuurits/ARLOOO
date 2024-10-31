@@ -198,13 +198,58 @@
     </main>
 
     <aside class="cartTab" id="cart">
-        <h1>Ostukorv</h1>
         <div class="listCart" id="cart-items"></div>
         <div class="btn">
             <button class="close" onclick="toggleCart()">Sulge</button>
         </div>
     </aside>
 
-    <script src="script.js"></script>
+    <script>
+        let cart = [];
+        let cartCount = 0;
+        const listCartHTML = document.getElementById('cart-items');
+        const iconCart = document.getElementById('iconCart');
+        const cartTab = document.getElementById('cart');
+
+        iconCart.addEventListener('click', toggleCart);
+
+        function toggleCart() {
+            cartTab.classList.toggle('open');
+        }
+
+        function addToCart(productName, price, sizeId) {
+            let positionThisProductInCart = cart.findIndex(item => item.name === productName);
+
+            if (positionThisProductInCart < 0) {
+                cart.push({ name: productName, price: price, quantity: 1 });
+            } else {
+                cart[positionThisProductInCart].quantity++;
+            }
+
+            cartCount++;
+            document.getElementById('cart-count').textContent = cartCount;
+            displayCartItems();
+            addCartToMemory();
+        }
+
+        function displayCartItems() {
+            listCartHTML.innerHTML = '<h3>Ostukorv</h3>';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotalPrice = item.price * item.quantity;
+                listCartHTML.innerHTML += `
+                    <p>${item.name} - ${item.price}€ x ${item.quantity} = ${itemTotalPrice.toFixed(2)}€ 
+                    <button onclick="removeFromCart('${item.name}')">Eemalda</button></p>`;
+                total += itemTotalPrice;
+            });
+            
+            listCartHTML.innerHTML += `<p><strong>Kokku: ${total.toFixed(2)}€</strong></p>`;
+        }
+
+        function addCartToMemory() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    </script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 
     <header>
         <h1>- Mütsid -</h1>
-        <div class="icon-cart" onclick="toggleCart()">
+        <div class="icon-cart" id="iconCart">
             <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Ostukorv">
             <span id="cart-count">0</span>
         </div>
@@ -19,73 +19,128 @@
     <button class="back-button" onclick="window.history.back()">Tagasi</button>
 
     <main class="listProduct">
+        <!-- Tooted -->
         <div class="product item">
             <h2>KOOTUD MÜTS</h2>
             <img src="images/muts1.webp" alt="KOOTUD MÜTS" class="product-image">
             <p>Hind: 15,95€</p>
-            <button class="addCart" onclick="addToCart('KOOTUD MÜTS', 129)">Lisa korvi</button>
+            <button class="addCart" onclick="addToCart('KOOTUD MÜTS', 15.95, 'size1')">Lisa korvi</button>
         </div>
-        
+
         <div class="product item">
             <h2>KOOTUD MÜTS</h2>
             <img src="images/muts2.webp" alt="KOOTUD MÜTS" class="product-image">
             <p>Hind: 15,95€</p>
-            <button class="addCart" onclick="addToCart('KOOTUD MÜTS', 99)">Lisa korvi</button>
+            <button class="addCart" onclick="addToCart('KOOTUD MÜTS', 15.95, 'size2')">Lisa korvi</button>
         </div>
 
         <div class="product item">
             <h2>KOOTUD MÜTS</h2>
             <img src="images/muts3.webp" alt="KOOTUD MÜTS" class="product-image">
             <p>Hind: 15,95€</p>
-            <button class="addCart" onclick="addToCart('KOOTUD MÜTS', 89)">Lisa korvi</button>
+            <button class="addCart" onclick="addToCart('KOOTUD MÜTS', 15.95, 'size3')">Lisa korvi</button>
         </div>
 
         <div class="product item">
             <h2>LÜHIKE KOOTUD MÜTS</h2>
             <img src="images/muts4.webp" alt="LÜHIKE KOOTUD MÜTS" class="product-image">
             <p>Hind: 22,95€</p>
-            <button class="addCart" onclick="addToCart('LÜHIKE KOOTUD MÜTS', 99)">Lisa korvi</button>
+            <button class="addCart" onclick="addToCart('LÜHIKE KOOTUD MÜTS', 22.95, 'size4')">Lisa korvi</button>
         </div>
 
         <div class="product item">
             <h2>LÜHIKE KOOTUD MÜTS</h2>
             <img src="images/muts5.webp" alt="LÜHIKE KOOTUD MÜTS" class="product-image">
             <p>Hind: 22,95€</p>
-            <button class="addCart" onclick="addToCart('LÜHIKE KOOTUD MÜTS', 99)">Lisa korvi</button>
+            <button class="addCart" onclick="addToCart('LÜHIKE KOOTUD MÜTS', 22.95, 'size5')">Lisa korvi</button>
         </div>
 
         <div class="product item">
             <h2>LÜHIKE KOOTUD MÜTS</h2>
             <img src="images/muts6.webp" alt="LÜHIKE KOOTUD MÜTS" class="product-image">
             <p>Hind: 22,95€</p>
-            <button class="addCart" onclick="addToCart('LÜHIKE KOOTUD MÜTS', 99)">Lisa korvi</button>
+            <button class="addCart" onclick="addToCart('LÜHIKE KOOTUD MÜTS', 22.95, 'size6')">Lisa korvi</button>
         </div>
 
         <div class="product item">
             <h2>REBITUD VIIMISTLUSEGA KOOTUD MÜTS</h2>
             <img src="images/muts7.webp" alt="REBITUD VIIMISTLUSEGA KOOTUD MÜTS" class="product-image">
             <p>Hind: 19,95€</p>
-            <label for="size2">Vali suurus:</label>
-            <button class="addCart" onclick="addToCart('REBITUD VIIMISTLUSEGA KOOTUD MÜTS', 99)">Lisa korvi</button>
+            <button class="addCart" onclick="addToCart('REBITUD VIIMISTLUSEGA KOOTUD MÜTS', 19.95, 'size7')">Lisa korvi</button>
         </div>
 
         <div class="product item">
             <h2>REBITUD VIIMISTLUSEGA KOOTUD MÜTS</h2>
             <img src="images/muts8.webp" alt="REBITUD VIIMISTLUSEGA KOOTUD MÜTS" class="product-image">
             <p>Hind: 19,95€</p>
-            <button class="addCart" onclick="addToCart('REBITUD VIIMISTLUSEGA KOOTUD MÜTS', 99)">Lisa korvi</button>
+            <button class="addCart" onclick="addToCart('REBITUD VIIMISTLUSEGA KOOTUD MÜTS', 19.95, 'size8')">Lisa korvi</button>
         </div>
-
     </main>
 
     <aside class="cartTab" id="cart">
-        <h1>Ostukorv</h1>
         <div class="listCart" id="cart-items"></div>
         <div class="btn">
             <button class="close" onclick="toggleCart()">Sulge</button>
         </div>
     </aside>
 
-    <script src="script.js"></script>
+    <script>
+        let cart = [];
+        let cartCount = 0;
+        const listCartHTML = document.getElementById('cart-items');
+        const iconCart = document.getElementById('iconCart');
+        const cartTab = document.getElementById('cart');
+
+        iconCart.addEventListener('click', toggleCart);
+
+        function toggleCart() {
+            cartTab.classList.toggle('open');
+        }
+
+        function addToCart(productName, price, sizeId) {
+            let positionThisProductInCart = cart.findIndex(item => item.name === productName);
+
+            if (positionThisProductInCart < 0) {
+                cart.push({ name: productName, price: price, quantity: 1 });
+            } else {
+                cart[positionThisProductInCart].quantity++;
+            }
+
+            cartCount++;
+            document.getElementById('cart-count').textContent = cartCount;
+            displayCartItems();
+            addCartToMemory();
+        }
+
+        function removeFromCart(productName) {
+            let positionThisProductInCart = cart.findIndex(item => item.name === productName);
+            if (positionThisProductInCart >= 0) {
+                cartCount -= cart[positionThisProductInCart].quantity;
+                cart.splice(positionThisProductInCart, 1);
+                document.getElementById('cart-count').textContent = cartCount;
+                displayCartItems();
+                addCartToMemory();
+            }
+        }
+
+        function displayCartItems() {
+            listCartHTML.innerHTML = '<h3>Ostukorv</h3>';
+            let total = 0;
+
+            cart.forEach(item => {
+                const itemTotalPrice = item.price * item.quantity;
+                listCartHTML.innerHTML += `
+                    <p>${item.name} - ${item.price}€ x ${item.quantity} = ${itemTotalPrice.toFixed(2)}€ 
+                    <button onclick="removeFromCart('${item.name}')">Eemalda</button></p>`;
+                total += itemTotalPrice;
+            });
+            
+            listCartHTML.innerHTML += `<p><strong>Kokku: ${total.toFixed(2)}€</strong></p>`;
+        }
+
+        function addCartToMemory() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    </script>
 </body>
 </html>
