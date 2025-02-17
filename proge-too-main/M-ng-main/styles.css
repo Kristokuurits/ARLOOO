@@ -160,10 +160,12 @@ header {
     padding: var(--padding);
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
+    height: 50px;
     font-size: 14px; 
     transition: background-color 0.3s ease;
 }
+
 
 .close:hover {
     background-color: #444;
@@ -261,4 +263,16 @@ header {
     align-items: center;
     justify-content: center;
     border-color: #ccc;
+}
+
+.button{
+    width: 100px;
+    height: 50px;
+    margin-left: -1150px;
+    margin-top: -66px;
+}
+
+.back-button12 {
+    margin-left: 600px;
+    margin-top: -4%;
 }

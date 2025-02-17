@@ -44,3 +44,27 @@ function displayCartItems() {
 function addCartToMemory() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
+
+
+let cardNumInput = 
+    document.querySelector('#cardNum')
+
+cardNumInput.addEventListener('keyup', () => {
+    let cNumber = cardNumInput.value
+    cNumber = cNumber.replace(/\s/g, "")
+
+    if (Number(cNumber)) {
+        cNumber = cNumber.match(/.{1,4}/g)
+        cNumber = cNumber.join(" ")
+        cardNumInput.value = cNumber
+    }
+
+    function redirectToPayment() {
+        if (cart.length > 0) {
+            window.location.href = 'payment-page.html';
+        } else {
+            alert('Palun lisa tooteid ennem maksmiseni liikumist');
+        }
+    }
+    
+})
