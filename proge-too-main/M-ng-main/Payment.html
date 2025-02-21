@@ -25,7 +25,7 @@
         }
 
         .pay-now-btn:hover {
-            background-color: #45a049; /* Tumeroheline hover */
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -159,7 +159,6 @@
             <input type="submit" value="Proceed to Checkout" class="submit_btn">
         </form>
 
-        <!-- Ostukorvi nupp (Maksmine) -->
         <div class="cart-footer">
             <button class="pay-now-btn" onclick="redirectToPayment()">Maksmine</button>
         </div>
@@ -167,7 +166,6 @@
     </div>
 
     <script type="text/javascript">
-        // Cart functionality and redirection
         let cart = [];
         let cartCount = 0;
         let listCartHTML = document.querySelector('.listCart');
@@ -225,7 +223,7 @@
             }
         }
 
-        // Card number formatting
+
         let cardNumInput = document.querySelector('#cardNum');
 
         cardNumInput.addEventListener('keyup', () => {
