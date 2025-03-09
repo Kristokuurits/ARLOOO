@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="et">
 <head>
@@ -9,57 +13,19 @@
 <body>
 
     <header>
+        <?php if (isset($_SESSION['user_name']) || isset($_SESSION['admin_name'])): ?>
+            <p>Tere, <?php echo $_SESSION['user_name'] ?? $_SESSION['admin_name']; ?>!</p>
+            <a href="logout.php"><button class="login-btn">Logi välja</button></a>
+        <?php else: ?>
+            <a href="login.php"><button class="login-btn">Logi sisse</button></a>
+        <?php endif; ?>
+        
         <h1>- A R L O -</h1>
         <div class="icon-cart" onclick="toggleCart()">
             <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Ostukorv">
             <span id="cart-count">0</span>
         </div>
     </header>
-         
-      <div id="choice-container">
-        <h1>Vali tegevus</h1>
-        <button class="action-button" onclick="showLogin()">Logi sisse</button>
-        <button class="action-button" onclick="showRegister()">Loo kasutaja</button>
-    </div>
-
-    <div id="login-container" class="form-container" style="display:none;">
-        <h2>Sisselogimine</h2>
-        <form action="/login" method="POST">
-            <input type="text" name="username" placeholder="Kasutajanimi" required>
-            <input type="password" name="password" placeholder="Parool" required>
-            <button type="submit">Logi sisse</button>
-        </form>
-        <button class="back-button" onclick="goBack()">Tagasi</button>
-    </div>
-
-    <div id="register-container" class="form-container" style="display:none;">
-        <h2>Registreeri</h2>
-        <form action="/register" method="POST">
-            <input type="text" name="username" placeholder="Kasutajanimi" required>
-            <input type="password" name="password" placeholder="Parool" required>
-            <input type="text" name="role" placeholder="Roll (admin/user)" required>
-            <button type="submit">Registreeri</button>
-        </form>
-        <button class="back-button" onclick="goBack()">Tagasi</button>
-    </div>
-
-    <script>
-        function showLogin() {
-            document.getElementById("choice-container").style.display = "none";
-            document.getElementById("login-container").style.display = "block";
-        }
-
-        function showRegister() {
-            document.getElementById("choice-container").style.display = "none";
-            document.getElementById("register-container").style.display = "block";
-        }
-
-        function goBack() {
-            document.getElementById("login-container").style.display = "none";
-            document.getElementById("register-container").style.display = "none";
-            document.getElementById("choice-container").style.display = "block";
-        }
-    </script>
 
     <section class="image-buttons category-box">
         <h3>- Choose Your Category -</h3>
@@ -113,6 +79,6 @@
             button.addEventListener('click', addToCart);
         });
     </script>
+
 </body>
 </html>
-

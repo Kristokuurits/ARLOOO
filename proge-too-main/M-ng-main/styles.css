@@ -13,7 +13,8 @@ body {
     overflow-y: auto;
     animation: backgroundAnimation 20s ease infinite; 
     background: linear-gradient(270deg, #8B0000, #000000, #4B0000, #ffffff);
-    background-size: 400% 400%; 
+    background-size: 400% 400%;
+    
 }
 
 
@@ -278,5 +279,23 @@ header {
 
 .choice-container {
     margin-top: 2px;
+}
+
+.login-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #ccc;
 }
 
