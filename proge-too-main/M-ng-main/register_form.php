@@ -68,6 +68,8 @@ if (isset($_POST['submit'])) {
         </select>
         <input type="submit" name="submit" value="Registreeru" class="form-btn">
         <p>Juba konto olemas? <a href="login_form.php">Logi sisse</a></p>
+
+        <a href="index.php" class="back-btn"> Tagasi</a>
     </form>
 </div>
 

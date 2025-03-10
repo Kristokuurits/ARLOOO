@@ -25,6 +25,7 @@ $result = mysqli_query($conn, $select_users);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
 
@@ -51,7 +52,14 @@ $result = mysqli_query($conn, $select_users);
     <?php } ?>
 </table>
 
-<a href="logout.php">Logi välja</a>
+
+<form action="logout.php" method="get">
+    <button type="submit">Logi välja</button>
+</form>
+
+<form action="index.php" method="get">
+    <button type="submit">Tagasi avalehele</button>
+</form>
 
 </body>
 </html>

@@ -9,6 +9,40 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A R L O</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: rgb(255, 255, 255);
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            left: 290px;
+        }
+
+        .login-btn {
+            cursor: pointer;
+            position: absolute;
+            left: 150px;
+            top: 22px;
+        }
+
+        .back-btn:hover {
+            background-color: rgb(190, 190, 190);
+        }
+
+        h1 {
+    position: relative; 
+    left: -430px; 
+}
+
+    </style>
 </head>
 <body>
 
@@ -16,10 +50,15 @@ session_start();
         <?php if (isset($_SESSION['user_name']) || isset($_SESSION['admin_name'])): ?>
             <p>Tere, <?php echo $_SESSION['user_name'] ?? $_SESSION['admin_name']; ?>!</p>
             <a href="logout.php"><button class="login-btn">Logi välja</button></a>
+
+            <?php if (isset($_SESSION['admin_name'])): ?>
+                <a href="admin_page.php" class="back-btn">Muuda</a>
+            <?php endif; ?>
+
         <?php else: ?>
             <a href="login.php"><button class="login-btn">Logi sisse</button></a>
         <?php endif; ?>
-        
+
         <h1>- A R L O -</h1>
         <div class="icon-cart" onclick="toggleCart()">
             <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Ostukorv">

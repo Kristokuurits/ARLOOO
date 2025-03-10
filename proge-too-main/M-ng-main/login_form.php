@@ -52,6 +52,8 @@ if(isset($_POST['submit'])){
         <input type="password" name="password" required placeholder="Sisesta oma parool">
         <input type="submit" name="submit" value="Logi sisse" class="form-btn">
         <p>Pole kontot? <a href="register_form.php">Registreeri</a></p>
+
+        <a href="index.php" class="back-btn"> Tagasi</a>
     </form>
 </div>
 
